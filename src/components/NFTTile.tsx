@@ -1,10 +1,9 @@
-import axie from "../tile.jpeg";
 import {
     BrowserRouter as Router,
     Link,
   } from "react-router-dom";
 
-function NFTTile (data) {
+function NFTTile (data:any) {
     const newTo = {
         pathname:"/nftPage/"+data.data.tokenId
     }

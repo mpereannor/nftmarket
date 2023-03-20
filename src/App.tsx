@@ -16,7 +16,9 @@ function App() {
     <div className="container">
         <Routes>
           <Route path="/" element={<Marketplace />}/>
-          <Route path="/nftPage" element={<NFTPage />}/>        
+          <Route path="/nftPage" element={<NFTPage />}>
+          <Route path="/nftPage/:tokenId" element={<NFTPage />}/> 
+          </Route>
           <Route path="/profile" element={<Profile />}/>
           <Route path="/sellNFT" element={<SellNFT />}/>             
         </Routes>

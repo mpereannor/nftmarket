@@ -1,15 +1,17 @@
+//@ts-nocheck
 import Navbar from "./Navbar"
-import axie from "../tile.jpeg"
+// import axie from "../tile.jpeg"
 import { useLocation, useParams } from "react-router-dom"
 import MarketplaceJSON from "../Marketplace.json"
 import axios from "axios"
 import { useState } from "react"
 
-export default function NFTPage(props) {
+
+export default function NFTPage(props: any) {
   const [data, updateData] = useState({})
   const [message, updateMessage] = useState("")
   const [currAddress, updateCurrAddress] = useState("0x")
-  async function getNFTData(tokenId) {
+  async function getNFTData(tokenId: string) {
     const ethers = require("ethers")
     //After adding your Hardhat network to your metamask, this code will get providers and signers
     const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -40,7 +42,7 @@ export default function NFTPage(props) {
     updateData(item)
   }
 
-  async function buyNFT(tokenId) {
+  async function buyNFT(tokenId: string) {
     try {
       const ethers = require("ethers")
       //After adding your Hardhat network to your metamask, this code will get providers and signers
@@ -64,7 +66,7 @@ export default function NFTPage(props) {
     }
   }
   return (
-    <div style={{ "min-height": "100vh" }}>
+    <div>
       <Navbar></Navbar>
       <div className="flex ml-20 mt-20">
         <img src={data.image} alt="" className="w-2/5" />

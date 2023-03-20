@@ -49,26 +49,26 @@ async function getAllNFTs() {
     let transaction = await contract.getAllNFTs()
 
     //Fetch all the details of every NFT from the contract and display
-    const items = await Promise.all(transaction.map(async i => {
-        const tokenURI = await contract.tokenURI(i.tokenId);
-        let meta = await axios.get(tokenURI);
-        meta = meta.data;
+    // const items = await Promise.all(transaction.map(async i => {
+    //     const tokenURI = await contract.tokenURI(i.tokenId);
+    //     let meta = await axios.get(tokenURI);
+    //     meta = meta.data;
 
-        let price = ethers.utils.formatUnits(i.price.toString(), 'ether');
-        let item = {
-            price,
-            tokenId: i.tokenId.toNumber(),
-            seller: i.seller,
-            owner: i.owner,
-            image: meta.image,
-            name: meta.name,
-            description: meta.description,
-        }
-        return item;
-    }))
+    //     let price = ethers.utils.formatUnits(i.price.toString(), 'ether');
+    //     let item = {
+    //         price,
+    //         tokenId: i.tokenId.toNumber(),
+    //         seller: i.seller,
+    //         owner: i.owner,
+    //         image: meta.image,
+    //         name: meta.name,
+    //         description: meta.description,
+    //     }
+    //     return item;
+    // }))
 
     updateFetched(true);
-    updateData(items);
+    // updateData(i,tems);
 }
 
 if(!dataFetched)
